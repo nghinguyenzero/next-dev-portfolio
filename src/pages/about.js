@@ -7,6 +7,7 @@ import profilePic from "../../public/images/profile/luffy-gear-5-3.png";
 import {
     useSpring, useMotionValue, useInView
 } from 'framer-motion';
+import Skills from "@/components/Skills";
 
 const AnimateNumber = ({value}) => {
     const ref = useRef(null)
@@ -86,7 +87,7 @@ const about = () => {
 
                 </div>
 
-
+                <Skills/>
                 </Layout>
             </main>
         </>
