@@ -15,13 +15,13 @@ const MoveImage = ({ title, image, link }) => {
   const y = useMotionValue(0);
   const imgRef = useRef(null);
 
-  function handleMove(event) {
+  function handleMouse(event) {
     imgRef.current.style.display = "inline-block";
     x.set(event.pageX);
     y.set(-10);
   }
 
-  function handleMoveLeave(event) {
+  function handleMouseLeave(event) {
     imgRef.current.style.display = "none";
     x.set(0);
     y.set(0);
@@ -31,25 +31,30 @@ const MoveImage = ({ title, image, link }) => {
     <Link
       href={link}
       target="_blank"
-      onMouseMove={handleMove}
-      onMoveLeave={handleMoveLeave}
+      onMouseMove={handleMouse}
+      onMouseLeave={handleMouseLeave}
     >
-      <h2 className="capitalize text-2xl font-semibold over: underline">
+      <h2 className="capitalize text-2xl font-semibold hover:underline">
         {title}
       </h2>
       <FramerImage
         ref={imgRef}
         style={{ x: x, y: y }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1, transition: { duration: 0.2 } }}
         src={image}
         alt={title}
-        className=" w-96 h-auto hidden absolute rounded-lg"
+        className="z-10 w-96 h-auto hidden absolute rounded-lg"
       />
     </Link>
   );
 };
 const Article = ({ image, title, date, link }) => {
   return (
-    <li
+    <motion.li
+      initial={{ y: 200 }}
+      whileInView={{ y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
+      viewport={{ once: true }}
       className="relative w-full p-4 py-6 my-4 rounded-xl flex items-center
     justify-between bg-light text-dark first:mb-0 
     border border-solid border-dark border-r-4 border-b-4"
@@ -61,7 +66,7 @@ const Article = ({ image, title, date, link }) => {
       </Link>
       <MoveImage title={title} image={image} link={link} />
       <span className="text-primary font-semibold pl-4">{date}</span>
-    </li>
+    </motion.li>
   );
 };
 
@@ -101,7 +106,7 @@ const articles = (props) => {
   return (
     <>
       <Head>
-        <title>ZN | Artiscles Page</title>
+        <title>ZERO | Articles Page</title>
         <meta name="description" content="any description" />
       </Head>
       <main className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden">
@@ -137,6 +142,25 @@ const articles = (props) => {
             All Articles
           </h2>
           <ul>
+            <Article
+              image={article2}
+              title="Validate form React"
+              date="March 22, 2023"
+              link="/"
+            />
+            <Article
+              image={article2}
+              title="Validate form React"
+              date="March 22, 2023"
+              link="/"
+            />
+            <Article
+              image={article2}
+              title="Validate form React"
+              date="March 22, 2023"
+              link="/"
+            />
+
             <Article
               image={article2}
               title="Validate form React"
