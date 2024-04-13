@@ -25,7 +25,7 @@ module.exports = {
 
           '30%': {
             // transform: 'scale3d(1.25, 0.75, 1)',
-            transform: 'scale3d(1.1, 0.9, 1)',
+            transform: 'scale3d(1.10, 0.9, 1)',
           },
 
           '40%': {
@@ -44,7 +44,6 @@ module.exports = {
             transform: 'scale3d(0.99, 1.01, 1)',
 
           },
-
           '75%': {
             // transform: 'scale3d(1.05, 0.95, 1)',
             transform: 'scale3d(1.01, 0.99, 1)',
