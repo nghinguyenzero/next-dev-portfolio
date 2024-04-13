@@ -1,7 +1,7 @@
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import Image from "next/image";
-import { Head } from "next/head";
+import Head from "next/head";
 import React, { useEffect, useRef } from 'react'
 import profilePic from "../../public/images/profile/luffy-gear-5-3.png";
 import {
@@ -40,10 +40,10 @@ const AnimateNumber = ({value}) => {
 const about = () => {
     return (
         <>
-            {/* <Head>
+            <Head>
                 <title>ZN | About Page</title>
                 <meta name="description" content="any description"/>
-            </Head> */}
+            </Head>
             <main className="flex w-full flex-col items-center justify-center">
                 <AnimatedText text='Passion Fuels Purpose!' className="mb-16"/>
                 <Layout className={'pt-16'}>
@@ -63,7 +63,7 @@ const about = () => {
                     <div className="col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark
                     bg-light p-8">
                         <div className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark"></div>
-                        <Image src={profilePic} alt={'ZERO'} className='w-full h-auto rounded-2xl'/>
+                        <Image src={profilePic} alt={'ZERO'} className='w-full h-auto rounded-2xl animate-rubberBand'/>
                     </div>
                     <div className="col-span-2 flex flex-col items-end justify-between">
                         <div className="flex flex-col items-end justify-center">

@@ -1,14 +1,16 @@
 import AnimatedText from "@/components/AnimatedText";
 import { GithubIcon } from "@/components/Icons";
 import Layout from "@/components/Layout";
-// import { Head } from "next/head";
+import Head from "next/head";
 import Image from "next/image";
 
 import Link from "next/link";
 import project1 from "../../public/images/projects/project_1.png";
 import project2 from "../../public/images/projects/sun-store.png";
 import project3 from "../../public/images/projects/zero-store.png";
+import { motion } from "framer-motion";
 
+const FramerImage = motion(Image);
 
 const FeaturedProject = ({ type, title, summary, image, link, github }) => {
   return (
@@ -26,7 +28,13 @@ const FeaturedProject = ({ type, title, summary, image, link, github }) => {
         target="_blank"
         className="w-1/2 cursor-pointer overflow-hidden rounded-lg"
       >
-        <Image src={image} alt={title} className="w-full h-auto" />
+        <FramerImage
+          src={image}
+          alt={title}
+          className="w-full h-auto"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
+        />
       </Link>
       <div className="w-1/2 flex-col items-start justify-between pl-6">
         <span className="text-primary font-medium text-xl">{type}</span>
@@ -63,15 +71,20 @@ const Project = ({ type, title, image, link, github }) => {
     >
       <div
         className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark
-      rounded-br-3xl
-      "
+      rounded-br-3xl"
       />
       <Link
         href={link}
         target="_blank"
         className="w-full cursor-pointer overflow-hidden rounded-lg"
       >
-        <Image src={image} alt={title} className="w-full h-auto" />
+        <FramerImage
+          src={image}
+          alt={title}
+          className="w-full h-auto"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
+        />
       </Link>
       <div className="w-full flex-col items-start justify-between pl-6 mt-4">
         <span className="text-primary font-medium text-xl">{type}</span>
@@ -102,10 +115,10 @@ const Project = ({ type, title, image, link, github }) => {
 const projects = (props) => {
   return (
     <>
-      {/* <Head>
-            <title>Zero | Projects Pages</title>
-            <meta name='description' content="any description"></meta>
-        </Head> */}
+      <Head>
+        <title>Zero | Projects Pages</title>
+        <meta name="description" content="any description"></meta>
+      </Head>
       <main className="w-full  mb-16 flex flex-col justify-center items-center">
         <Layout className="pt-16">
           <AnimatedText
