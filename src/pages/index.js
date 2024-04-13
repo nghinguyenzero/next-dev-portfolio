@@ -26,7 +26,7 @@ export default function Home() {
               <Image
                 src={profilePic}
                 alt="Next.js"
-                className="w-full h-auto"
+                className="animate-rubberBand w-full h-auto"
               />
             </div>
             <div className="w-1/2 flex flex-col items-center self-center">

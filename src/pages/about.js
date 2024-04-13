@@ -9,6 +9,7 @@ import {
 } from 'framer-motion';
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
+import Education from "@/components/Education";
 
 const AnimateNumber = ({value}) => {
     const ref = useRef(null)
@@ -49,16 +50,14 @@ const about = () => {
                 <Layout className={'pt-16'}>
                 <div className="grid w-full grid-cols-8 gap-16">
                     <div className="col-span-3 flex flex-col items-start justify-start">
-                        <h2 className="mb-4 text-lg font-bold uppercase text-dark/75">Medical</h2>
+                        <h2 className="mb-4 text-lg font-bold uppercase text-dark/75">Biography</h2>
                         <p className="font-medium">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ullam sit cumque nisi deserunt obcaecati eveniet fugiat atque consequatur nam, corrupti magni consequuntur aliquam commodi velit. Ad nobis ab ipsa?
+                        Hi, I'm Zero, a web developer with a passion for creating beautiful, functional, and user-centered digital experiences. With 4 years of experience in the field. I am always looking for new and innovative ways to bring my clients' visions to life.
                         </p>
                         <p className="my-4 font-medium">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ullam sit cumque nisi deserunt obcaecati eveniet fugiat atque consequatur nam, corrupti magni consequuntur aliquam commodi velit. Ad nobis ab ipsa?
-                        </p>
+                        I believe that design is about more than just making things look pretty – it's about solving problems and creating intuitive, enjoyable experiences for users.</p>
                         <p className="font-medium">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ullam sit cumque nisi deserunt obcaecati eveniet fugiat atque consequatur nam, corrupti magni consequuntur aliquam commodi velit. Ad nobis ab ipsa?
-                        </p>
+                        Whether I'm working on a website, mobile app, or other digital product, I bring my commitment to design excellence and user-centered thinking to every project I work on. I look forward to the opportunity to bring my skills and passion to your next project.                        </p>
                     </div>
                     <div className="col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark
                     bg-light p-8">
@@ -68,13 +67,13 @@ const about = () => {
                     <div className="col-span-2 flex flex-col items-end justify-between">
                         <div className="flex flex-col items-end justify-center">
                             <span className="inline-block text-7xl font-bold">
-                                <AnimateNumber value={50}/> +
+                                <AnimateNumber value={10}/> +
                             </span>
                             <h2 className="text-xl font-medium capitalize text-dark/75">Satisfied Clients</h2>
                         </div>
                         <div className="flex flex-col items-end justify-center">
                             <span className="inline-block text-7xl font-bold">
-                            <AnimateNumber value={40}/> +
+                            <AnimateNumber value={10}/> +
                             </span>
                             <h2 className="text-xl font-medium capitalize  text-dark/75">Projects completed</h2>
                         </div>
@@ -90,6 +89,7 @@ const about = () => {
 
                 <Skills/>
                 <Experience/>
+                <Education/>
                 </Layout>
             </main>
         </>
