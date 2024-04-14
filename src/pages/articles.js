@@ -57,7 +57,7 @@ const Article = ({ image, title, date, link }) => {
       viewport={{ once: true }}
       className="relative w-full p-4 py-6 my-4 rounded-xl flex items-center
     justify-between bg-light text-dark first:mb-0 
-    border border-solid border-dark border-r-4 border-b-4"
+    border border-solid border-dark border-r-4 border-b-4 dark:border-light dark:bg-dark dark:text-light"
     >
       <Link href={link} target="_blank" className="">
         <h2 className="capitalize text-2xl font-semibold over: underline">
@@ -65,16 +65,17 @@ const Article = ({ image, title, date, link }) => {
         </h2>
       </Link>
       <MoveImage title={title} image={image} link={link} />
-      <span className="text-primary font-semibold pl-4">{date}</span>
+      <span className="text-primary font-semibold pl-4 dark:text-primaryDark">{date}</span>
     </motion.li>
   );
 };
 
 const FeaturedArticle = ({ image, title, time, summary, link }) => {
   return (
-    <li className="relative col-span-1 w-full p-4 bg-light border border-solid border-dark rounded-2xl">
+    <li className="relative col-span-1 w-full p-4 bg-light border border-solid border-dark rounded-2xl 
+    dark:border-light dark:bg-dark dark:text-light">
       <div
-        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark
+        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark 
       rounded-br-3xl
       "
       />
@@ -89,6 +90,8 @@ const FeaturedArticle = ({ image, title, time, summary, link }) => {
           src={image}
           alt={title}
           className="w-full h-auto"
+          priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </Link>
       <Link href={link} target="_blank">
@@ -97,7 +100,7 @@ const FeaturedArticle = ({ image, title, time, summary, link }) => {
         </h2>
       </Link>
       <p className="text-smmb-2">{summary}</p>
-      <span className="text-primary font-semibold">{time}</span>
+      <span className="text-primary font-semibold dark:text-primaryDark">{time}</span>
     </li>
   );
 };
@@ -109,7 +112,7 @@ const articles = (props) => {
         <title>ZERO | Articles Page</title>
         <meta name="description" content="any description" />
       </Head>
-      <main className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden">
+      <main className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden dark:text-light">
         <Layout className="pt-16">
           <AnimatedText text="Works Can Change The World!" className="mb-16" />
           <ul className="grid grid-cols-2 gap-16">
@@ -138,7 +141,7 @@ const articles = (props) => {
               link="/"
             />
           </ul>
-          <h2 className="font-bold text-4xl w-full text-center my-6 mt-32">
+          <h2 className="font-bold text-4xl w-full text-center my-6 mt-32 dark:text-light">
             All Articles
           </h2>
           <ul>

@@ -49,6 +49,12 @@ const Education = () => {
             place="HCM University of Science"
             info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence."
           />
+          <Details
+            type={"Bachelor Of Information Technology"}
+            time="2011-2017"
+            place="HCM University of Science"
+            info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence."
+          />
         </ul>
       </div>
     </div>

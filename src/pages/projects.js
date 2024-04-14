@@ -16,10 +16,10 @@ const FeaturedProject = ({ type, title, summary, image, link, github }) => {
   return (
     <article
       className="w-full flex  items-center justify-between relative rounded-br-2xl
-      rounded-3xl border border-solid border-dark bg-light shadow-2xl p-12"
+      rounded-3xl border border-solid border-dark bg-light shadow-2xl p-12 dark:bg-dark dark:border-light dark:text-light"
     >
       <div
-        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark
+        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark dark:bg-light
       rounded-br-3xl
       "
       />
@@ -34,18 +34,20 @@ const FeaturedProject = ({ type, title, summary, image, link, github }) => {
           className="w-full h-auto"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
+          priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </Link>
       <div className="w-1/2 flex-col items-start justify-between pl-6">
-        <span className="text-primary font-medium text-xl">{type}</span>
+        <span className="text-primary font-medium text-xl dark:text-primaryDark">{type}</span>
         <Link
           href={link}
           target="_blank"
           className="hover:underline underline-offset-2"
         >
-          <h2 className="my-2 w-full text-left text-4xl font-bold"> {title}</h2>
+          <h2 className="my-2 w-full text-left text-4xl font-bold dark:text-light"> {title}</h2>
         </Link>
-        <p className="my-2 font-medium text-dark">{summary}</p>
+        <p className="my-2 font-medium text-dark dark:text-light">{summary}</p>
         <div className="mt-2 flex items-center">
           <Link href={github} target="_blank" className="w-10">
             <GithubIcon />
@@ -53,7 +55,7 @@ const FeaturedProject = ({ type, title, summary, image, link, github }) => {
           <Link
             href={link}
             target="_blank"
-            className="ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold"
+            className="ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold dark:text-dark dark:bg-light"
           >
             Visit project
           </Link>
@@ -67,10 +69,10 @@ const Project = ({ type, title, image, link, github }) => {
   return (
     <article
       className="w-full flex flex-col items-center justify-between
-      rounded-2xl border border-solid border-dark bg-light p-6 relative"
+      rounded-2xl border border-solid border-dark bg-light p-6 relative dark:border-light dark:bg-dark dark:text-light"
     >
       <div
-        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark
+        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark 
       rounded-br-3xl"
       />
       <Link
@@ -87,7 +89,7 @@ const Project = ({ type, title, image, link, github }) => {
         />
       </Link>
       <div className="w-full flex-col items-start justify-between pl-6 mt-4">
-        <span className="text-primary font-medium text-xl">{type}</span>
+        <span className="text-primary font-medium text-xl dark:text-primaryDark">{type}</span>
         <Link
           href={link}
           target="_blank"
@@ -104,7 +106,7 @@ const Project = ({ type, title, image, link, github }) => {
             Visit
           </Link>
           <Link href={github} target="_blank" className="w-8">
-            <GithubIcon />
+            <GithubIcon/>
           </Link>
         </div>
       </div>
@@ -119,14 +121,13 @@ const projects = (props) => {
         <title>ZERO | Projects Page</title>
         <meta name="description" content="any description"></meta>
       </Head>
-      <main className="w-full  mb-16 flex flex-col justify-center items-center">
+      <main className="w-full  mb-16 flex flex-col justify-center items-center dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
             text="Imagination Trumps Knownledge!"
             className="mb-16"
           />
           <div className="grid grid-cols-12 gap-24 gap-y-32">
-            {/* <div className="col-span-12">Features Project</div> */}
             <div className="col-span-12">
               <FeaturedProject
                 type="Featured Project"
