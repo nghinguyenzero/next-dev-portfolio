@@ -16,6 +16,7 @@ import sunBulb2 from "../../public/images/svgs/sun_1.png";
 
 
 import useThemeSwitcher from "@/components/hooks/useThemeSwitcher";
+import TransitionEffect from "@/components/TransitionEffect";
 
 export default function Home() {
   const [mode, setMode] = useThemeSwitcher();
@@ -28,6 +29,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <TransitionEffect/>
       <main className="flex items-center text-dark w-full min-h-screen dark:text-light">
         <Layout className="pt-0 md:pt-16 sm:pt-8">
           <div className="flex items-center justify-between w-full 
