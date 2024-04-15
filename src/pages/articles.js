@@ -34,6 +34,7 @@ const MoveImage = ({ title, image, link }) => {
       target="_blank"
       onMouseMove={handleMouse}
       onMouseLeave={handleMouseLeave}
+      className="sm:w-full"
     >
       <h2 className="capitalize text-2xl font-semibold hover:underline">
         {title}

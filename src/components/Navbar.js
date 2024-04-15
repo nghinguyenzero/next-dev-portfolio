@@ -6,10 +6,9 @@ import {
   FacebookIcon,
   GithubIcon,
   GoogleIcon,
-  InstagramIcon,
   MoonIcon,
+  NotionIcon,
   SunIcon,
-  TiktokIcon,
   XtwitterIcon,
 } from "./Icons";
 import { motion } from "framer-motion";
@@ -105,15 +104,7 @@ const Navbar = () => {
         </nav>
         <nav className="flex justify-center items-center flex-wrap">
           <motion.a
-            href="/"
-            target={"_blank"}
-            whileHover={{ y: -2 }}
-            className="w-6 mx-3 bg-light rounded-full"
-          >
-            <FacebookIcon />
-          </motion.a>
-          <motion.a
-            href="https://github.com"
+            href="https://github.com/nghinguyenzero"
             target={"_blank"}
             whileHover={{ y: -2 }}
             className="w-6 mx-3"
@@ -121,12 +112,12 @@ const Navbar = () => {
             <GithubIcon />
           </motion.a>
           <motion.a
-            href="/"
+            href="https://facebook.com/nghinguyenzero"
             target={"_blank"}
             whileHover={{ y: -2 }}
-            className="w-6 mx-3"
+            className="w-6 mx-3 bg-light rounded-full"
           >
-            <InstagramIcon />
+            <FacebookIcon />
           </motion.a>
           <motion.a
             href="/"
@@ -145,12 +136,12 @@ const Navbar = () => {
             <GoogleIcon />
           </motion.a>
           <motion.a
-            href="/"
+            href="https://www.notion.so/nghinguyenzero"
             target={"_blank"}
             whileHover={{ y: -2 }}
             className="w-6 mx-3"
           >
-            <TiktokIcon className="dark:fill-light" />
+            <NotionIcon className="dark:fill-light" />
           </motion.a>
           <button
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
@@ -168,8 +159,8 @@ const Navbar = () => {
 
       {isOpen ? (
         <motion.div
-        initial={{scale:0, opacity:0, x:'-50%', y:'-50%'}}
-        animate={{scale:1, opacity:1}}
+          initial={{ scale: 0, opacity: 0, x: "-50%", y: "-50%" }}
+          animate={{ scale: 1, opacity: 1 }}
           className="min-w-[70vw] flex flex-col justify-between z-30 items-center fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
         bg-dark/90 dark:bg-light/75 rounded-lg backdrop-blur-md py-32"
         >
@@ -201,14 +192,6 @@ const Navbar = () => {
           </nav>
           <nav className="flex justify-center items-center flex-wra mt-2">
             <motion.a
-              href="/"
-              target={"_blank"}
-              whileHover={{ y: -2 }}
-              className="w-6 mx-3 sm:mx-1 bg-light rounded-full"
-            >
-              <FacebookIcon />
-            </motion.a>
-            <motion.a
               href="https://github.com"
               target={"_blank"}
               whileHover={{ y: -2 }}
@@ -220,17 +203,18 @@ const Navbar = () => {
               href="/"
               target={"_blank"}
               whileHover={{ y: -2 }}
-              className="w-6 mx-3 sm:mx-1"
+              className="w-6 mx-3 sm:mx-1 bg-light rounded-full"
             >
-              <InstagramIcon />
+              <FacebookIcon />
             </motion.a>
+
             <motion.a
               href="/"
               target={"_blank"}
               whileHover={{ y: -2 }}
               className="w-6 mx-3 sm:mx-1"
             >
-              <XtwitterIcon className="dark:fill-light" />
+              <XtwitterIcon className="dark:fill-dark fill-light" />
             </motion.a>
             <motion.a
               href="/"
@@ -240,14 +224,13 @@ const Navbar = () => {
             >
               <GoogleIcon />
             </motion.a>
-
             <motion.a
-              href="/"
+              href="https://github.com"
               target={"_blank"}
               whileHover={{ y: -2 }}
-              className="w-6 mx-3 sm:mx-1"
+              className="w-6 mx-3"
             >
-              <TiktokIcon className="dark:fill-light" />
+              <NotionIcon className="dark:fill-dark fill-light" />
             </motion.a>
 
             <button
