@@ -118,7 +118,7 @@ const projects = (props) => {
   return (
     <>
       <Head>
-        <title>ZERO | Projects Page</title>
+        <title>ZN | Projects Page</title>
         <meta name="description" content="any description"></meta>
       </Head>
       <main className="w-full  mb-16 flex flex-col justify-center items-center dark:text-light">
