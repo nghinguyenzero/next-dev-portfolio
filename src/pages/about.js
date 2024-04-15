@@ -36,7 +36,7 @@ const about = () => {
   return (
     <>
       <Head>
-        <title>ZN | About Page</title>
+        <title>About | ZN</title>
         <meta name="description" content="any description" />
       </Head>
       <TransitionEffect/>
@@ -70,7 +70,7 @@ const about = () => {
               <Image
                 src={profilePic}
                 alt={"zero picture"}
-                className="w-full h-auto rounded-2xl animate-rubberBand"
+                className="w-full h-auto rounded-2xl dark:animate-rubberBand"
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />

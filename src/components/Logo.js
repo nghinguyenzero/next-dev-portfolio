@@ -17,7 +17,7 @@ const Logo = () => {
                     transition: { duration: 1, repeat: Infinity }
                 }}
             >
-                ZN
+                <span className='animate-rubberBand dark:animate-none'>🙂</span>
 
 
             </MotionLink>
