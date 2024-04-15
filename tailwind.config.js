@@ -19,6 +19,7 @@ module.exports = {
       keyframes: {
         rubberBand: {
           from: {
+            opacity: '0.7',
             transform: "scale3d(1, 1, 1)",
             transform: "translateY(-10%)", //bounce
             animationTimingFunction: "cubic-bezier(0.8,0,1,1)", //bounce
@@ -35,6 +36,7 @@ module.exports = {
           },
 
           "50%": {
+            opacity: '1',
             // transform: 'scale3d(1.15, 0.85, 1)',
             transform: "scale3d(1.02, 0.98, 1)",
             animationTimingFunction: "cubic-bezier(0,0,0.2,1)", //bounce
@@ -45,10 +47,12 @@ module.exports = {
             transform: "scale3d(0.99, 1.01, 1)",
           },
           "75%": {
+            opacity: '0.7',
             // transform: 'scale3d(1.05, 0.95, 1)',
             transform: "scale3d(1.01, 0.99, 1)",
           },
           to: {
+            opacity: '0.7',
             transform: "scale3d(1, 1, 1)",
             transform: "translateY(-10%)", //bounce
             animationTimingFunction: "cubic-bezier(0.8,0,1,1)", //bounce
