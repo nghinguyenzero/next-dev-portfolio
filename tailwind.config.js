@@ -17,43 +17,43 @@ module.exports = {
         primaryDark: "#58E6D9", // 80,230,217
       },
       keyframes: {
-        rubberBand: {
+        rubberBandBounce: {
           from: {
-            opacity: '0.7',
-            transform: "scale3d(1, 1, 1)",
+            // opacity: '0.7',
+            transform: "scale3d(1, 1, 1)", // rubber
             transform: "translateY(-10%)", //bounce
             animationTimingFunction: "cubic-bezier(0.8,0,1,1)", //bounce
           },
 
           "30%": {
             // transform: 'scale3d(1.25, 0.75, 1)',
-            transform: "scale3d(1.10, 0.9, 1)",
+            transform: "scale3d(1.10, 0.9, 1)", // rubber
           },
 
           "40%": {
             // transform: 'scale3d(0.75, 1.25, 1)',
-            transform: "scale3d(0.9, 1.1, 1)",
+            transform: "scale3d(0.9, 1.1, 1)", // rubber
           },
 
           "50%": {
-            opacity: '1',
+            // opacity: '1',
             // transform: 'scale3d(1.15, 0.85, 1)',
-            transform: "scale3d(1.02, 0.98, 1)",
+            transform: "scale3d(1.02, 0.98, 1)", //// rubber
             animationTimingFunction: "cubic-bezier(0,0,0.2,1)", //bounce
           },
 
           "65%": {
             // transform: 'scale3d(0.95, 1.05, 1)',
-            transform: "scale3d(0.99, 1.01, 1)",
+            transform: "scale3d(0.99, 1.01, 1)", // rubber
           },
           "75%": {
-            opacity: '0.7',
+            // opacity: '0.7',
             // transform: 'scale3d(1.05, 0.95, 1)',
-            transform: "scale3d(1.01, 0.99, 1)",
+            transform: "scale3d(1.01, 0.99, 1)", // rubber
           },
           to: {
-            opacity: '0.7',
-            transform: "scale3d(1, 1, 1)",
+            // opacity: '0.7',
+            transform: "scale3d(1, 1, 1)", // rubber
             transform: "translateY(-10%)", //bounce
             animationTimingFunction: "cubic-bezier(0.8,0,1,1)", //bounce
           },
@@ -61,7 +61,7 @@ module.exports = {
       },
       animation: {
         "spin-slow": "spin 8s linear infinite",
-        rubberBand: "rubberBand 1s infinite",
+        rubberBandBounce: "rubberBandBounce 1s infinite",
       },
       backgroundImage: {
         circularLight:
