@@ -6,6 +6,7 @@ import { CONTENT } from "@/constants";
 
 const Footer = () => {
     const {lang} = useContext(LangContext)
+
     const FOOTER = CONTENT[`${lang}`].footer
     return (
         <footer className="w-full border-t-2 border-solid border-dark

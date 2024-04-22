@@ -1,5 +1,4 @@
 import React, { useContext, useRef } from "react";
-
 import { motion, useScroll } from "framer-motion";
 import LiIcon from "./LiIcon";
 import { CONTENT} from "@/constants";
@@ -42,6 +41,7 @@ const Details = ({data}) => {
 
 const Experience = () => {
   const {lang} = useContext(LangContext)
+
   const EXPERIENCE = CONTENT[`${lang}`].about.experience
 
   const ref = useRef(null);

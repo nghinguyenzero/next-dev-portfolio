@@ -84,6 +84,7 @@ const FeaturedProject = ({ data }) => {
 
 const Project = ({ data }) => {
   const {lang} = useContext(LangContext)
+  // const [lang] = useLanguageSwitcher()
   const PROJECT = CONTENT[`${lang}`].project
   const { type, title, image, link, github } = data;
   return (
@@ -140,8 +141,9 @@ const Project = ({ data }) => {
 };
 
 const projects = () => {
-  const {lang} = useContext(LangContext)
-const PROJECT = CONTENT[`${lang}`].project
+  const langContext = useContext(LangContext)
+  const { lang }= langContext
+  const PROJECT = CONTENT[`${lang}`].project
   return (
     <>
       <Head>
@@ -156,18 +158,16 @@ const PROJECT = CONTENT[`${lang}`].project
             className="mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
           />
           {PROJECT.featuredProjects.map((featuredProject, index) => (
-            <div className="grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
+            <div key={index} className="grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
               <div className="col-span-12">
                 <FeaturedProject
                   data={featuredProject}
-                  key={index}
                 />
               </div>
               {featuredProject.projects.map((project, ix) => (
-                <div className="col-span-6 sm:col-span-12">
+                <div className="col-span-6 sm:col-span-12" key={ix}>
                   <Project
                     data={project}
-                    key={ix}
                   />
                 </div>
               ))}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
@@ -20,6 +20,7 @@ import useThemeSwitcher from "./hooks/useThemeSwitcher";
 
 import UsaFlag from "../../public/images/usa64.png";
 import VietFlag from "../../public/images/vietnam64.png";
+import { LangContext } from "@/context/LangContext";
 
 const CustomLink = ({ href, title, className = "" }) => {
   const router = useRouter();
@@ -69,7 +70,9 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useThemeSwitcher();
-  const [lang, toggleLanguage] = useLanguageSwitcher();
+  const {lang} = useContext(LangContext)
+  const [language, setLanguage] = useLanguageSwitcher();
+  console.log({lang});
   const NAVBAR = CONTENT[`${lang}`].navbar
   
   const handleClick = () => {
@@ -159,12 +162,12 @@ const Navbar = () => {
           </button>
 
           <button
-            onClick={() => toggleLanguage('us')}
+            onClick={() => setLanguage('us')}
             >
           <Image src={UsaFlag} alt='nextjs' className={`w-6 mx-3 ${lang === 'vn'? 'blur-[1.5px]': 'animate-spin-slow'}`}/>
           </button>
           <button
-            onClick={() => toggleLanguage('vn')}
+            onClick={() => setLanguage('vn')}
             >
           <Image src={VietFlag} alt='nextjs'className={`w-6 mx-3 ${lang === 'en'? 'blur-[1.5px]': 'animate-spin-slow'}`}/>
           </button>
@@ -253,12 +256,12 @@ const Navbar = () => {
             </button>
 
             <button
-            onClick={() => toggleLanguage('us')}
+            onClick={() => setLanguage('us')}
             >
           <Image src={UsaFlag} alt='nextjs' className={`w-6 mx-3 ${lang === 'vn'? 'blur-[1px]': 'animate-spin-slow'}`}/>
           </button>
           <button
-            onClick={() => toggleLanguage('vn')}
+            onClick={() => setLanguage('vn')}
             >
           <Image src={VietFlag} alt='nextjs'className={`w-6 mx-3 ${lang === 'en'? 'blur-[1px]': 'animate-spin-slow'}`}/>
           </button>

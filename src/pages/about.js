@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import Image from "next/image";
 import Head from "next/head";
+
 import { useSpring, useMotionValue, useInView } from "framer-motion";
 
 import AnimatedText from "@/components/AnimatedText";
