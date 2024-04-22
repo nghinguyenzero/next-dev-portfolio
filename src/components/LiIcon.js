@@ -1,6 +1,6 @@
 import { motion, useScroll } from "framer-motion";
+
 const LiIcon = ({reference}) => {
-    // const ref = useRef(null);
     const {scrollYProgress} = useScroll({
       target: reference,
       offset: ["start end", "center center"],
@@ -19,7 +19,6 @@ const LiIcon = ({reference}) => {
                 />
                 <circle cx='75' cy='50' r='10' className="animate-pulse stroke-1 fill-primary dark:fill-primaryDark"/>
             </svg>
-            
         </figure>
     );
 }

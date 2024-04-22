@@ -1,4 +1,9 @@
+import { useContext } from "react";
 import { motion } from "framer-motion";
+
+import { LangContext } from "@/context/LangContext";
+import { CONTENT } from "@/constants";
+
 const Skill = ({name, x, y}) => {
     return (
         <motion.div className="flex justify-center items-center rounded-full font-semibold text-light
@@ -15,10 +20,13 @@ const Skill = ({name, x, y}) => {
        </motion.div>
     )
 }
-const Skills = (props) => {
+
+const Skills = () => {
+  const {lang} = useContext(LangContext)
+  const ABOUT = CONTENT[`${lang}`].about
   return (
     <>
-      <h2 className="font-bold text-8xl mt-64 w-full text-center md:text-6xl md:mt-32"> Skills</h2>
+      <h2 className="font-bold text-8xl mt-64 w-full text-center md:text-6xl md:mt-32"> {ABOUT.skills}</h2>
       <div className="w-full h-screen relative flex items-center justify-center rounded-full bg-circularLight 
         dark:bg-circularDark lg:h-[80vh] sm:h-[60vh] xs:h-[50vh]
         lg:bg-circularLightLg dark:lg:bg-circularDarkLg

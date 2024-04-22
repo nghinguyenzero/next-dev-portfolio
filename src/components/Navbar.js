@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Logo from "./Logo";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+import { CONTENT } from "@/constants";
 import {
   FacebookIcon,
-  GithubIcon,
   GoogleIcon,
   MoonIcon,
   NotionIcon,
   SunIcon,
   XtwitterIcon,
 } from "./Icons";
-import { motion } from "framer-motion";
+import Logo from "./Logo";
+
+import useLanguageSwitcher from "./hooks/useLanguageSwitcher";
 import useThemeSwitcher from "./hooks/useThemeSwitcher";
+
+import UsaFlag from "../../public/images/usa64.png";
+import VietFlag from "../../public/images/vietnam64.png";
 
 const CustomLink = ({ href, title, className = "" }) => {
   const router = useRouter();
-  console.log(router);
-
   return (
     <Link href={href} className={`${className} relative group`}>
       {title}
@@ -36,7 +41,6 @@ const CustomLink = ({ href, title, className = "" }) => {
 
 const CustomMobileLink = ({ href, title, className = "", toggle }) => {
   const router = useRouter();
-  console.log(router);
   const handleClick = () => {
     toggle();
     router.push(href);
@@ -64,11 +68,15 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [mode, setMode] = useThemeSwitcher();
+  const [lang, toggleLanguage] = useLanguageSwitcher();
+  const NAVBAR = CONTENT[`${lang}`].navbar
+  
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
-  const [mode, setMode] = useThemeSwitcher();
+
+
   return (
     <header
       className="w-full px-32 py-8 font-medium flex items-center justify-between dark:text-light relative z-10
@@ -97,20 +105,12 @@ const Navbar = () => {
 
       <div className="w-full flex justify-between items-center lg:hidden">
         <nav>
-          <CustomLink href="/" title="Home" className="mx-4" />
-          <CustomLink href="/about" title="About" className="mx-4" />
-          <CustomLink href="/projects" title="Projects" className="mx-4" />
-          <CustomLink href="/articles" title="Articles" className="mx-4" />
+          <CustomLink href="/" title={NAVBAR.home} className="mx-4" />
+          <CustomLink href="/about" title={NAVBAR.about} className="mx-4" />
+          <CustomLink href="/projects" title={NAVBAR.projects} className="mx-4" />
+          <CustomLink href="/articles" title={NAVBAR.articles} className="mx-4" />
         </nav>
         <nav className="flex justify-center items-center flex-wrap">
-          <motion.a
-            href="https://github.com/nghinguyenzero"
-            target={"_blank"}
-            whileHover={{ y: -2 }}
-            className="w-6 mx-3"
-          >
-            <GithubIcon />
-          </motion.a>
           <motion.a
             href="https://facebook.com/nghinguyenzero"
             target={"_blank"}
@@ -143,9 +143,12 @@ const Navbar = () => {
           >
             <NotionIcon className="dark:fill-light" />
           </motion.a>
+
+
+
           <button
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
-            className={`ml-3 flex items-center justify-center rounded-full p-1
+            className={`mx-3 flex items-center justify-center rounded-full p-1
             ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}`}
           >
             {mode === "dark" ? (
@@ -153,6 +156,17 @@ const Navbar = () => {
             ) : (
               <MoonIcon className="fill-light" />
             )}
+          </button>
+
+          <button
+            onClick={() => toggleLanguage('us')}
+            >
+          <Image src={UsaFlag} alt='nextjs' className={`w-6 mx-3 ${lang === 'vn'? 'blur-[1.5px]': 'animate-spin-slow'}`}/>
+          </button>
+          <button
+            onClick={() => toggleLanguage('vn')}
+            >
+          <Image src={VietFlag} alt='nextjs'className={`w-6 mx-3 ${lang === 'en'? 'blur-[1.5px]': 'animate-spin-slow'}`}/>
           </button>
         </nav>
       </div>
@@ -167,38 +181,30 @@ const Navbar = () => {
           <nav className="flex flex-col items-center justify-center">
             <CustomMobileLink
               href="/"
-              title="Home"
+              title={NAVBAR.home}
               className=""
               toggle={handleClick}
             />
             <CustomMobileLink
               href="/about"
-              title="About"
+              title={NAVBAR.about}
               className=""
               toggle={handleClick}
             />
             <CustomMobileLink
               href="/projects"
-              title="Projects"
+              title={NAVBAR.projects}
               className=""
               toggle={handleClick}
             />
             <CustomMobileLink
               href="/articles"
-              title="Articles"
+              title={NAVBAR.articles}
               className=""
               toggle={handleClick}
             />
           </nav>
           <nav className="flex justify-center items-center flex-wra mt-2">
-            <motion.a
-              href="https://github.com"
-              target={"_blank"}
-              whileHover={{ y: -2 }}
-              className="w-6 mx-3 sm:mx-1 bg-light rounded-full dark:bg-dark"
-            >
-              <GithubIcon />
-            </motion.a>
             <motion.a
               href="/"
               target={"_blank"}
@@ -232,10 +238,9 @@ const Navbar = () => {
             >
               <NotionIcon className="dark:fill-dark fill-light" />
             </motion.a>
-
             <button
               onClick={() => setMode(mode === "light" ? "dark" : "light")}
-              className={`ml-3 flex items-center justify-center rounded-full p-1
+              className={`mx-3 flex items-center justify-center rounded-full p-1
               ${
                 mode === "light" ? "bg-dark text-light" : "bg-light text-dark"
               }`}
@@ -246,6 +251,18 @@ const Navbar = () => {
                 <MoonIcon className="fill-light" />
               )}
             </button>
+
+            <button
+            onClick={() => toggleLanguage('us')}
+            >
+          <Image src={UsaFlag} alt='nextjs' className={`w-6 mx-3 ${lang === 'vn'? 'blur-[1px]': 'animate-spin-slow'}`}/>
+          </button>
+          <button
+            onClick={() => toggleLanguage('vn')}
+            >
+          <Image src={VietFlag} alt='nextjs'className={`w-6 mx-3 ${lang === 'en'? 'blur-[1px]': 'animate-spin-slow'}`}/>
+          </button>
+
           </nav>
         </motion.div>
       ) : null}

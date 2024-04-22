@@ -1,9 +1,13 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 
 import { motion, useScroll } from "framer-motion";
 import LiIcon from "./LiIcon";
+import { CONTENT} from "@/constants";
+import { LangContext } from "@/context/LangContext";
 
-const Details = ({ position, company, companyLink, time, address, work }) => {
+
+const Details = ({data}) => {
+    const { position, company, companyLink, time, address, work } = data
     const ref = useRef(null)
   return (
 
@@ -37,6 +41,9 @@ const Details = ({ position, company, companyLink, time, address, work }) => {
 };
 
 const Experience = () => {
+  const {lang} = useContext(LangContext)
+  const EXPERIENCE = CONTENT[`${lang}`].about.experience
+
   const ref = useRef(null);
   const {scrollYProgress} = useScroll({
     target: ref,
@@ -47,7 +54,7 @@ const Experience = () => {
       <h2 className="font-bold text-8xl mb-32 w-full text-center
         md:text-6xl xs:text-4xl md:mb-16"
       >
-        Expericence
+        {EXPERIENCE.title}
       </h2>
       <div ref={ref} className="w-[75%] mx-auto relative lg:w-[90%] md:w-full">
         <motion.div 
@@ -59,51 +66,9 @@ const Experience = () => {
         <ul className="w-full flex flex-col items-start justify-between ml-4
         xs:ml-2
         ">
-          <Details
-            position={"Web developer"}
-            company={"FPT Information system"}
-            time="2020-Present"
-            address="District 7, HCM"
-            work="Worked on a team responsible for developing new features for Fis's 
-                            search engine, including improving the accuracy and relevance of search results and 
-                            developing new tools for data analysis and visualization"
-          />
-          <Details
-            position={"Frontend developer"}
-            company={"TMA Solutions"}
-            time="2019-2020"
-            address="District 12, HCM"
-            work="Worked on a team responsible for developing new features for TMA's 
-                            search engine, including improving the accuracy and relevance of search results and 
-                            developing new tools for data analysis and visualization"
-          />
-                    <Details
-            position={"Frontend developer"}
-            company={"TMA Solutions"}
-            time="2019-2020"
-            address="District 12, HCM"
-            work="Worked on a team responsible for developing new features for TMA's 
-                            search engine, including improving the accuracy and relevance of search results and 
-                            developing new tools for data analysis and visualization"
-          />
-                    <Details
-            position={"Frontend developer"}
-            company={"TMA Solutions"}
-            time="2019-2020"
-            address="District 12, HCM"
-            work="Worked on a team responsible for developing new features for TMA's 
-                            search engine, including improving the accuracy and relevance of search results and 
-                            developing new tools for data analysis and visualization"
-          />
-                    <Details
-            position={"Frontend developer"}
-            company={"TMA Solutions"}
-            time="2019-2020"
-            address="District 12, HCM"
-            work="Worked on a team responsible for developing new features for TMA's 
-                            search engine, including improving the accuracy and relevance of search results and 
-                            developing new tools for data analysis and visualization"
-          />
+          {
+            EXPERIENCE.experiences.map((item, index) =>  (<Details key={index} data={item}/>))
+          }
         </ul>
       </div>
     </div>

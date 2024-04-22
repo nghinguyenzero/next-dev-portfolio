@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const TransitionEffect = (props) => {
+const TransitionEffect = () => {
   return (
     <>
       <motion.div

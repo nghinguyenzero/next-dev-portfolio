@@ -1,12 +1,14 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 
 import { motion, useScroll } from "framer-motion";
 import LiIcon from "./LiIcon";
+import { CONTENT} from "@/constants";
+import { LangContext } from "@/context/LangContext";
 
-const Details = ({ type, time, place, info }) => {
+const Details = ({data}) => {
+    const { type, time, place, info } = data
     const ref = useRef(null)
   return (
-
     <li ref={ref} className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col justify-between md:w-[80%]">
         <LiIcon reference={ref}/>
       <motion.div
@@ -27,6 +29,9 @@ const Details = ({ type, time, place, info }) => {
 };
 
 const Education = () => {
+  const {lang} = useContext(LangContext)
+  const EDUCATION = CONTENT[`${lang}`].about.education
+
   const ref = useRef(null);
   const {scrollYProgress} = useScroll({
     target: ref,
@@ -35,7 +40,7 @@ const Education = () => {
   return (
     <div className="my-64">
       <h2 className="font-bold text-8xl mb-32 w-full text-center md:text-6xl xs:text-4xl md:mb-16">
-        Education
+        {EDUCATION.title}
       </h2>
       <div ref={ref} className="w-[75%] mx-auto relative lg:w-[90%] md:w-full">
         <motion.div 
@@ -45,18 +50,9 @@ const Education = () => {
             ">
         </motion.div>
         <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
-          <Details
-            type={"Bachelor Of Information Technology"}
-            time="2011-2017"
-            place="HCM University of Science"
-            info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence."
-          />
-          <Details
-            type={"Bachelor Of Information Technology"}
-            time="2011-2017"
-            place="HCM University of Science"
-            info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence."
-          />
+          {
+            EDUCATION.educations.map((data, i) => <Details key={i} data={data}/>)
+          }
         </ul>
       </div>
     </div>

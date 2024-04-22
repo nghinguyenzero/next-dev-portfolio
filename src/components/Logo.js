@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-
 import { motion } from 'framer-motion'
-import sunBulb2 from "../../public/images/svgs/crown.png";
 import Image from 'next/image';
+
+import sunBulb2 from "../../public/images/svgs/crown.png";
 
 const MotionLink = motion(Link)
 
@@ -19,12 +19,7 @@ const Logo = () => {
                     transition: { duration: 1, repeat: Infinity }
                 }}
             >
-            {/* 🙂 */}
           <Image src={sunBulb2} alt='nextjs' className="w-[80%] h-auto animate-rubberBandBounce dark:animate-none"/>
-
-            {/* 👑 */}
-                {/* <span className='animate-rubberBandBounce dark:hidden'>👑</span>
-                <span className='animate-rubberBandBounce hidden dark:block'>☀️</span> */}
             </MotionLink>
         </motion.div>
 

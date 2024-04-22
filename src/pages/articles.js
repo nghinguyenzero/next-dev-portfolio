@@ -1,13 +1,14 @@
-import AnimatedText from "@/components/AnimatedText";
-import Layout from "@/components/Layout";
+import { useContext, useRef } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import article1 from "../../public/images/articles/article_1.png";
-import article2 from "../../public/images/articles/article_2.png";
 import { motion, useMotionValue } from "framer-motion";
-import { useRef } from "react";
+
+import AnimatedText from "@/components/AnimatedText";
+import Layout from "@/components/Layout";
 import TransitionEffect from "@/components/TransitionEffect";
+import { CONTENT} from "@/constants";
+import { LangContext } from "@/context/LangContext";
 
 const FramerImage = motion(Image);
 
@@ -51,7 +52,9 @@ const MoveImage = ({ title, image, link }) => {
     </Link>
   );
 };
-const Article = ({ image, title, date, link }) => {
+const Article = ({ data }) => {
+
+  const { image, title, date, link } = data;
   return (
     <motion.li
       initial={{ y: 200 }}
@@ -71,12 +74,14 @@ const Article = ({ image, title, date, link }) => {
   );
 };
 
-const FeaturedArticle = ({ image, title, time, summary, link }) => {
+const FeaturedArticle = ({ data }) => {
+  const { image, title, time, summary, link } = data;
   return (
-    <li className="relative col-span-1 w-full p-4 bg-light border border-solid border-dark rounded-2xl 
-    dark:border-light dark:bg-dark dark:text-light">
-      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark rounded-br-3xl"
-      />
+    <li
+      className="relative col-span-1 w-full p-4 bg-light border border-solid border-dark rounded-2xl 
+    dark:border-light dark:bg-dark dark:text-light"
+    >
+      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark rounded-br-3xl" />
       <Link
         href={link}
         target="_blank"
@@ -98,90 +103,41 @@ const FeaturedArticle = ({ image, title, time, summary, link }) => {
         </h2>
       </Link>
       <p className="text-sm mb-2">{summary}</p>
-      <span className="text-primary font-semibold dark:text-primaryDark">{time}</span>
+      <span className="text-primary font-semibold dark:text-primaryDark">
+        {time}
+      </span>
     </li>
   );
 };
 
 const articles = () => {
+  const {lang} = useContext(LangContext)
+  const ARTICLES = CONTENT[`${lang}`].article
   return (
     <>
       <Head>
-        <title>Articles | ZN</title>
+        <title>{ARTICLES.headTitle}</title>
         <meta name="description" content="any description" />
       </Head>
-      <TransitionEffect/>
+      <TransitionEffect />
       <main className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden dark:text-light">
         <Layout className="pt-16">
-          <AnimatedText text="Works Can Change The World!" 
-            className="mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"/>
+          <AnimatedText
+            text={`"${ARTICLES.quote}"`}
+            className="mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
+          />
           <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
-            <FeaturedArticle
-              image={article2}
-              title="Build A Custom Pagination Component In Reactjs From Scratch"
-              time="9 min read"
-              summary="Learn how to build a custom pagination component in ReactJS from scratch. 
-             Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
-              link="/"
-            />
-            <FeaturedArticle
-              image={article1}
-              title="Build A Custom Pagination Component In Reactjs From Scratch"
-              time="9 min read"
-              summary="Learn how to build a custom pagination component in ReactJS from scratch. 
-             Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
-              link="/"
-            />
-            <FeaturedArticle
-              image={article2}
-              title="Build A Custom Pagination Component In Reactjs From Scratch"
-              time="9 min read"
-              summary="Learn how to build a custom pagination component in ReactJS from scratch. 
-             Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
-              link="/"
-            />
+            {ARTICLES.featureArticles.map((featureArticle, index) => (
+              <FeaturedArticle data={featureArticle} key={index} />
+            ))}
           </ul>
           <h2 className="font-bold text-4xl w-full text-center my-6 mt-32 dark:text-light">
-            All Articles
+            {ARTICLES.allArticles}
           </h2>
           <ul>
-            <Article
-              image={article2}
-              title="Validate form React"
-              date="March 22, 2023"
-              link="/"
-            />
-            <Article
-              image={article2}
-              title="Validate form React"
-              date="March 22, 2023"
-              link="/"
-            />
-            <Article
-              image={article2}
-              title="Validate form React"
-              date="March 22, 2023"
-              link="/"
-            />
-
-            <Article
-              image={article2}
-              title="Validate form React"
-              date="March 22, 2023"
-              link="/"
-            />
-            <Article
-              image={article2}
-              title="Validate form React"
-              date="March 22, 2023"
-              link="/"
-            />
-            <Article
-              image={article2}
-              title="Validate form React"
-              date="March 22, 2023"
-              link="/"
-            />
+            {ARTICLES.articles.map((article, index) => (
+              <Article data={article} key={index} />
+            ))}
           </ul>
         </Layout>
       </main>
