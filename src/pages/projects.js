@@ -141,7 +141,7 @@ const Project = ({ data }) => {
   );
 };
 
-const projects = () => {
+const Projects = () => {
   const {t} = useTranslation(['project'])
   // const langContext = useContext(LangContext)
   // const { lang }= langContext
@@ -247,4 +247,4 @@ const projects = () => {
   );
 };
 
-export default projects;
+export default Projects;

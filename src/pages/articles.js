@@ -112,7 +112,7 @@ const FeaturedArticle = ({ data }) => {
   );
 };
 
-const articles = () => {
+const Articles = () => {
   const {t} = useTranslation(['article'])
   const featureArticles = [
     {
@@ -199,4 +199,4 @@ const articles = () => {
   );
 };
 
-export default articles;
+export default Articles;
