@@ -1,10 +1,8 @@
-import { useContext } from "react";
 import { motion } from "framer-motion";
-
-import { LangContext } from "@/context/LangContext";
-import { CONTENT } from "@/constants";
+import { useTranslation } from "react-i18next";
 
 const Skill = ({name, x, y}) => {
+
     return (
         <motion.div className="flex justify-center items-center rounded-full font-semibold text-light
         bg-dark py-3 px-6 shadow-dark cursor-pointer absolute dark:text-dark dark:border-light dark:bg-light
@@ -22,11 +20,12 @@ const Skill = ({name, x, y}) => {
 }
 
 const Skills = () => {
-  const {lang} = useContext(LangContext)
-  const ABOUT = CONTENT[`${lang}`].about
+  const {t} = useTranslation(['about'])
+
   return (
     <>
-      <h2 className="font-bold text-8xl mt-64 w-full text-center md:text-6xl md:mt-32"> {ABOUT.skills}</h2>
+      <h2 className="font-bold text-8xl mt-64 w-full text-center md:text-6xl md:mt-32"> 
+      {t("skills")}</h2>
       <div className="w-full h-screen relative flex items-center justify-center rounded-full bg-circularLight 
         dark:bg-circularDark lg:h-[80vh] sm:h-[60vh] xs:h-[50vh]
         lg:bg-circularLightLg dark:lg:bg-circularDarkLg

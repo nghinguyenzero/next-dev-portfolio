@@ -1,14 +1,16 @@
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useMotionValue } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import TransitionEffect from "@/components/TransitionEffect";
-import { CONTENT} from "@/constants";
-import { LangContext } from "@/context/LangContext";
+
+import article1 from "../../public/images/articles/article_1.png";
+import article2 from "../../public/images/articles/article_2.png";
 
 const FramerImage = motion(Image);
 
@@ -111,31 +113,83 @@ const FeaturedArticle = ({ data }) => {
 };
 
 const articles = () => {
-  const {lang} = useContext(LangContext)
-  const ARTICLES = CONTENT[`${lang}`].article
+  const {t} = useTranslation(['article'])
+  const featureArticles = [
+    {
+      image: article2,
+      title: 'Build A Custom Pagination Component In Reactjs From Scratch',
+      time: '9 min read',
+      summary: `Learn how to build a custom pagination component in ReactJS from scratch. 
+      Follow this step-by-step guide to integrate Pagination component in your ReactJS project.`,
+      link:'/'
+    },
+    {
+      image: article1,
+      title: 'Build A Custom Pagination Component In Reactjs From Scratch',
+      time: '9 min read',
+      summary: `Learn how to build a custom pagination component in ReactJS from scratch. 
+      Follow this step-by-step guide to integrate Pagination component in your ReactJS project.`,
+      link:'/'
+    },
+  ]
+  const articles = [
+    {
+      image: article1,
+      title: 'Build A Custom Pagination Component In Reactjs From Scratch',
+      time: '9 min read',
+      summary: `Learn how to build a custom pagination component in ReactJS from scratch. 
+      Follow this step-by-step guide to integrate Pagination component in your ReactJS project.`,
+      link:'/'
+    },
+    {
+      image: article2,
+      title: 'Build A Custom Pagination Component In Reactjs From Scratch',
+      time: '9 min read',
+      summary: `Learn how to build a custom pagination component in ReactJS from scratch. 
+      Follow this step-by-step guide to integrate Pagination component in your ReactJS project.`,
+      link:'/'
+    },
+    {
+      image: article1,
+      title: 'Build A Custom Pagination Component In Reactjs From Scratch',
+      time: '9 min read',
+      summary: `Learn how to build a custom pagination component in ReactJS from scratch. 
+      Follow this step-by-step guide to integrate Pagination component in your ReactJS project.`,
+      link:'/'
+    },
+    {
+      image: article1,
+      title: 'Build A Custom Pagination Component In Reactjs From Scratch',
+      time: '9 min read',
+      summary: `Learn how to build a custom pagination component in ReactJS from scratch. 
+      Follow this step-by-step guide to integrate Pagination component in your ReactJS project.`,
+      link:'/'
+    }
+  ]
+
   return (
     <>
       <Head>
-        <title>{ARTICLES.headTitle}</title>
+        <title>{t("headTitle")}</title>
         <meta name="description" content="any description" />
       </Head>
       <TransitionEffect />
       <main className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
-            text={`"${ARTICLES.quote}"`}
+            text={`"${t("quote")}"`}
             className="mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
           />
           <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
-            {ARTICLES.featureArticles.map((featureArticle, index) => (
+            {featureArticles.map((featureArticle, index) => (
               <FeaturedArticle data={featureArticle} key={index} />
             ))}
           </ul>
           <h2 className="font-bold text-4xl w-full text-center my-6 mt-32 dark:text-light">
-            {ARTICLES.allArticles}
+            {t("allArticles")}
           </h2>
           <ul>
-            {ARTICLES.articles.map((article, index) => (
+            {articles.map((article, index) => (
               <Article data={article} key={index} />
             ))}
           </ul>

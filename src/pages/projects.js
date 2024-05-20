@@ -1,22 +1,25 @@
-import { useContext } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import AnimatedText from "@/components/AnimatedText";
 import { GithubIcon } from "@/components/Icons";
 import Layout from "@/components/Layout";
 import TransitionEffect from "@/components/TransitionEffect";
-import { CONTENT} from "@/constants";
-import { LangContext } from "@/context/LangContext";
+
+import project1 from "../../public/images/projects/project_port_1.png";
+import project2 from "../../public/images/projects/sun-store.png";
+import project3 from "../../public/images/projects/zero-store.png";
+
 
 const FramerImage = motion(Image);
 
 
 const FeaturedProject = ({ data }) => {
-  const {lang} = useContext(LangContext)
-  const PROJECT = CONTENT[`${lang}`].project
+  const {t} = useTranslation(['project'])
+
   const { type, title, summary, image, link, github } = data;
   return (
     <article
@@ -74,7 +77,7 @@ const FeaturedProject = ({ data }) => {
             className="ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold dark:text-dark dark:bg-light
             sm:px-4 sm:text-base"
           >
-            {PROJECT.visitProject}
+            {t("visitProject")}
           </Link>
         </div>
       </div>
@@ -83,9 +86,7 @@ const FeaturedProject = ({ data }) => {
 };
 
 const Project = ({ data }) => {
-  const {lang} = useContext(LangContext)
-  // const [lang] = useLanguageSwitcher()
-  const PROJECT = CONTENT[`${lang}`].project
+  const {t} = useTranslation(['project'])
   const { type, title, image, link, github } = data;
   return (
     <article
@@ -129,7 +130,7 @@ const Project = ({ data }) => {
             target="_blank"
             className="text-lg font-semibold underline md:text-base"
           >
-            {PROJECT.visit}
+            {t("visit")}
           </Link>
           <Link href={github} target="_blank" className="w-8 md:w-6">
             <GithubIcon />
@@ -141,23 +142,90 @@ const Project = ({ data }) => {
 };
 
 const projects = () => {
-  const langContext = useContext(LangContext)
-  const { lang }= langContext
-  const PROJECT = CONTENT[`${lang}`].project
+  const {t} = useTranslation(['project'])
+  // const langContext = useContext(LangContext)
+  // const { lang }= langContext
+  // const PROJECT = CONTENT[`${lang}`].project
+  const featuredProjects =  [
+    {
+      type: "Work Project",
+      title: "Portfolio Zero Appication",
+      summary: `A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
+      It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
+      local currency`,
+      image: project1 ,
+      link: "https://github.com/nghinguyenzero/next-dev-portfolio",
+      github: "https://github.com/nghinguyenzero/next-dev-portfolio",
+      projects: [
+        {
+          type: "Featured Project",
+          title: "Portfolio Zero Appication",
+          summary: `A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
+      It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
+      local currency`,
+          image: project2,
+          link: "https://github.com/nghinguyenzero/next-dev-portfolio",
+          github: "https://github.com/nghinguyenzero/next-dev-portfolio",
+        },
+        {
+          type: "Portfolio Project",
+          title: "Portfolio Zero Appication",
+          summary: `A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
+      It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
+      local currency`,
+          image: project3 ,
+          link: "https://github.com/nghinguyenzero/next-dev-portfolio",
+          github: "https://github.com/nghinguyenzero/next-dev-portfolio",
+        },
+      ],
+    },
+    {
+      type: "Work Project",
+      title: "Portfolio Zero Appication",
+      summary: `A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
+      It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
+      local currency`,
+      image: project1,
+      link: "https://github.com/nghinguyenzero/next-dev-portfolio",
+      github: "https://github.com/nghinguyenzero/next-dev-portfolio",
+      projects: [
+        {
+          type: "Featured Project",
+          title: "Portfolio Zero Appication",
+          summary: `A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
+      It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
+      local currency`,
+          image: project2,
+          link: "https://github.com/nghinguyenzero/next-dev-portfolio",
+          github: "https://github.com/nghinguyenzero/next-dev-portfolio",
+        },
+        {
+          type: "Portfolio Project",
+          title: "Portfolio Zero Appication",
+          summary: `A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
+      It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
+      local currency`,
+          image: project3,
+          link: "https://github.com/nghinguyenzero/next-dev-portfolio",
+          github: "https://github.com/nghinguyenzero/next-dev-portfolio",
+        },
+      ],
+    },
+  ]
   return (
     <>
       <Head>
-        <title>{PROJECT.headTitle}</title>
+        <title>{t("headTitle")}</title>
         <meta name="description" content="any description"></meta>
       </Head>
       <TransitionEffect />
       <main className="w-full  mb-16 flex flex-col justify-center items-center dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
-            text={`"${PROJECT.quote}"`}
+            text={`"${t("quote")}"`}
             className="mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
           />
-          {PROJECT.featuredProjects.map((featuredProject, index) => (
+          {featuredProjects.map((featuredProject, index) => (
             <div key={index} className="grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
               <div className="col-span-12">
                 <FeaturedProject

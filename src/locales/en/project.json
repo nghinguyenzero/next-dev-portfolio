@@ -1,0 +1,61 @@
+{
+  "headTitle": "Projects | ZN",
+  "quote": "Stay hungry, stay foolish!",
+  "visitProject": "Visit project",
+  "visit": "Visit",
+  "featuredProject": "Featured Project",
+  "featuredProjects": [
+    {
+      "type": "Work Project",
+      "title": "Portfolio Zero Application",
+      "summary": "A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency.",
+      "image": "project1",
+      "link": "https://github.com/nghinguyenzero/next-dev-portfolio",
+      "github": "https://github.com/nghinguyenzero/next-dev-portfolio",
+      "projects": [
+        {
+          "type": "Featured Project",
+          "title": "Portfolio Zero Application",
+          "summary": "A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency.",
+          "image": "project2",
+          "link": "https://github.com/nghinguyenzero/next-dev-portfolio",
+          "github": "https://github.com/nghinguyenzero/next-dev-portfolio"
+        },
+        {
+          "type": "Portfolio Project",
+          "title": "Portfolio Zero Application",
+          "summary": "A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency.",
+          "image": "project3",
+          "link": "https://github.com/nghinguyenzero/next-dev-portfolio",
+          "github": "https://github.com/nghinguyenzero/next-dev-portfolio"
+        }
+      ]
+    },
+    {
+      "type": "Work Project",
+      "title": "Portfolio Zero Application",
+      "summary": "A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency.",
+      "image": "project1",
+      "link": "https://github.com/nghinguyenzero/next-dev-portfolio",
+      "github": "https://github.com/nghinguyenzero/next-dev-portfolio",
+      "projects": [
+        {
+          "type": "Featured Project",
+          "title": "Portfolio Zero Application",
+          "summary": "A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency.",
+          "image": "project2",
+          "link": "https://github.com/nghinguyenzero/next-dev-portfolio",
+          "github": "https://github.com/nghinguyenzero/next-dev-portfolio"
+        },
+        {
+          "type": "Portfolio Project",
+          "title": "Portfolio Zero Application",
+          "summary": "A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency.",
+          "image": "project3",
+          "link": "https://github.com/nghinguyenzero/next-dev-portfolio",
+          "github": "https://github.com/nghinguyenzero/next-dev-portfolio"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+    "headTitle": "Bài viết | ZN",
+    "quote": "Làm việc có thể thay đổi thế giới!",
+    "allArticles": "Tất cả bài viết",
+    "title": "Các bài viết",
+    "articles": [
+      {
+        "image": "article1",
+        "title": "Xây dựng thành phần phân trang tùy chỉnh trong Reactjs từ đầu",
+        "time": "Đọc trong 2 phút",
+        "summary": "Học cách xây dựng thành phần phân trang tùy chỉnh trong ReactJS từ đầu. Làm theo hướng dẫn từng bước này để tích hợp thành phần Phân trang vào dự án ReactJS của bạn.",
+        "link": "/"
+      },
+      {
+        "image": "article1",
+        "title": "Xây dựng thành phần phân trang tùy chỉnh trong Reactjs từ đầu",
+        "time": "Đọc trong 5 phút",
+        "summary": "Học cách xây dựng thành phần phân trang tùy chỉnh trong ReactJS từ đầu. Làm theo hướng dẫn từng bước này để tích hợp thành phần Phân trang vào dự án ReactJS của bạn.",
+        "link": "/"
+      },
+      {
+        "image": "article1",
+        "title": "Xây dựng thành phần phân trang tùy chỉnh trong Reactjs từ đầu",
+        "time": "Đọc trong 10 phút",
+        "summary": "Học cách xây dựng thành phần phân trang tùy chỉnh trong ReactJS từ đầu. Làm theo hướng dẫn từng bước này để tích hợp thành phần Phân trang vào dự án ReactJS của bạn.",
+        "link": "/"
+      },
+      {
+        "image": "article1",
+        "title": "Xây dựng thành phần phân trang tùy chỉnh trong Reactjs từ đầu",
+        "time": "Đọc trong 9 phút",
+        "summary": "Học cách xây dựng thành phần phân trang tùy chỉnh trong ReactJS từ đầu. Làm theo hướng dẫn từng bước này để tích hợp thành phần Phân trang vào dự án ReactJS của bạn.",
+        "link": "/"
+      }
+    ],
+    "featureArticles": [
+      {
+        "image": "article2",
+        "title": "Xây dựng thành phần phân trang tùy chỉnh trong Reactjs từ đầu",
+        "time": "Đọc trong 9 phút",
+        "summary": "Học cách xây dựng thành phần phân trang tùy chỉnh trong ReactJS từ đầu. Làm theo hướng dẫn từng bước này để tích hợp thành phần Phân trang vào dự án ReactJS của bạn.",
+        "link": "/"
+      },
+      {
+        "image": "article1",
+        "title": "Xây dựng thành phần phân trang tùy chỉnh trong Reactjs từ đầu",
+        "time": "Đọc trong 9 phút",
+        "summary": "Học cách xây dựng thành phần phân trang tùy chỉnh trong ReactJS từ đầu. Làm theo hướng dẫn từng bước này để tích hợp thành phần Phân trang vào dự án ReactJS của bạn.",
+        "link": "/"
+      }
+    ]
+  }

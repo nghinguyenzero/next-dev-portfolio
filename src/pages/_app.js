@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { LangProvider } from "@/context/LangContext";
+import "../i18n/i18n";
 
 const montserrat = Montserrat({
   subsets: ["latin"],

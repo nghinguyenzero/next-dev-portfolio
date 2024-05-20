@@ -1,0 +1,61 @@
+{
+    "headTitle": "Dự án | ZN",
+    "quote": "Hãy luôn khát khao, hãy cứ dại khờ!",
+    "visitProject": "Thăm dự án",
+    "visit": "Thăm",
+    "featuredProject": "Dự án nổi bật",
+    "featuredProjects": [
+      {
+        "type": "Dự án công việc",
+        "title": "Ứng dụng Portfolio Zero",
+        "summary": "Một ứng dụng sàng lọc tiền điện tử đa chức năng sử dụng React, Tailwind CSS, Context API, React Router và Recharts. Nó hiển thị chi tiết về hầu hết các loại tiền điện tử. Bạn có thể dễ dàng chuyển đổi giá sang đơn vị tiền tệ của mình.",
+        "image": "project1",
+        "link": "https://github.com/nghinguyenzero/next-dev-portfolio",
+        "github": "https://github.com/nghinguyenzero/next-dev-portfolio",
+        "projects": [
+          {
+            "type": "Dự án nổi bật",
+            "title": "Ứng dụng Portfolio Zero",
+            "summary": "Một ứng dụng sàng lọc tiền điện tử đa chức năng sử dụng React, Tailwind CSS, Context API, React Router và Recharts. Nó hiển thị chi tiết về hầu hết các loại tiền điện tử. Bạn có thể dễ dàng chuyển đổi giá sang đơn vị tiền tệ của mình.",
+            "image": "project2",
+            "link": "https://github.com/nghinguyenzero/next-dev-portfolio",
+            "github": "https://github.com/nghinguyenzero/next-dev-portfolio"
+          },
+          {
+            "type": "Dự án danh mục",
+            "title": "Ứng dụng Portfolio Zero",
+            "summary": "Một ứng dụng sàng lọc tiền điện tử đa chức năng sử dụng React, Tailwind CSS, Context API, React Router và Recharts. Nó hiển thị chi tiết về hầu hết các loại tiền điện tử. Bạn có thể dễ dàng chuyển đổi giá sang đơn vị tiền tệ của mình.",
+            "image": "project3",
+            "link": "https://github.com/nghinguyenzero/next-dev-portfolio",
+            "github": "https://github.com/nghinguyenzero/next-dev-portfolio"
+          }
+        ]
+      },
+      {
+        "type": "Dự án công việc",
+        "title": "Ứng dụng Portfolio Zero",
+        "summary": "Một ứng dụng sàng lọc tiền điện tử đa chức năng sử dụng React, Tailwind CSS, Context API, React Router và Recharts. Nó hiển thị chi tiết về hầu hết các loại tiền điện tử. Bạn có thể dễ dàng chuyển đổi giá sang đơn vị tiền tệ của mình.",
+        "image": "project1",
+        "link": "https://github.com/nghinguyenzero/next-dev-portfolio",
+        "github": "https://github.com/nghinguyenzero/next-dev-portfolio",
+        "projects": [
+          {
+            "type": "Dự án nổi bật",
+            "title": "Ứng dụng Portfolio Zero",
+            "summary": "Một ứng dụng sàng lọc tiền điện tử đa chức năng sử dụng React, Tailwind CSS, Context API, React Router và Recharts. Nó hiển thị chi tiết về hầu hết các loại tiền điện tử. Bạn có thể dễ dàng chuyển đổi giá sang đơn vị tiền tệ của mình.",
+            "image": "project2",
+            "link": "https://github.com/nghinguyenzero/next-dev-portfolio",
+            "github": "https://github.com/nghinguyenzero/next-dev-portfolio"
+          },
+          {
+            "type": "Dự án danh mục",
+            "title": "Ứng dụng Portfolio Zero",
+            "summary": "Một ứng dụng sàng lọc tiền điện tử đa chức năng sử dụng React, Tailwind CSS, Context API, React Router và Recharts. Nó hiển thị chi tiết về hầu hết các loại tiền điện tử. Bạn có thể dễ dàng chuyển đổi giá sang đơn vị tiền tệ của mình.",
+            "image": "project3",
+            "link": "https://github.com/nghinguyenzero/next-dev-portfolio",
+            "github": "https://github.com/nghinguyenzero/next-dev-portfolio"
+          }
+        ]
+      }
+    ]
+  }

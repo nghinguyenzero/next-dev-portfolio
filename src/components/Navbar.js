@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
-import { CONTENT } from "@/constants";
 import {
   FacebookIcon,
   GoogleIcon,
@@ -15,14 +15,14 @@ import {
 } from "./Icons";
 import Logo from "./Logo";
 
-import useLanguageSwitcher from "./hooks/useLanguageSwitcher";
 import useThemeSwitcher from "./hooks/useThemeSwitcher";
 
 import UsaFlag from "../../public/images/usa64.png";
 import VietFlag from "../../public/images/vietnam64.png";
-import { LangContext } from "@/context/LangContext";
+import { locales } from "@/i18n/i18n";
 
 const CustomLink = ({ href, title, className = "" }) => {
+  
   const router = useRouter();
   return (
     <Link href={href} className={`${className} relative group`}>
@@ -68,17 +68,25 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
 };
 
 const Navbar = () => {
+  const {i18n} = useTranslation()
+  const {t} = useTranslation(['navbar'])
+
+  const currentLanguage = {
+    key: i18n.language,
+    value: locales[i18n.language]
+  } 
+
+  console.log({currentLanguage});
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useThemeSwitcher();
-  const {lang} = useContext(LangContext)
-  const [language, setLanguage] = useLanguageSwitcher();
-  console.log({lang});
-  const NAVBAR = CONTENT[`${lang}`].navbar
   
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
-
+  const changeLanguage = (lng) => {
+    console.log({lng});
+    i18n.changeLanguage(lng)
+  }
 
   return (
     <header
@@ -108,10 +116,10 @@ const Navbar = () => {
 
       <div className="w-full flex justify-between items-center lg:hidden">
         <nav>
-          <CustomLink href="/" title={NAVBAR.home} className="mx-4" />
-          <CustomLink href="/about" title={NAVBAR.about} className="mx-4" />
-          <CustomLink href="/projects" title={NAVBAR.projects} className="mx-4" />
-          <CustomLink href="/articles" title={NAVBAR.articles} className="mx-4" />
+          <CustomLink href="/" title={t('home')} className="mx-4" />
+          <CustomLink href="/about" title={t('about')} className="mx-4" />
+          <CustomLink href="/projects" title={t('projects')} className="mx-4" />
+          <CustomLink href="/articles" title={t('articles')} className="mx-4" />
         </nav>
         <nav className="flex justify-center items-center flex-wrap">
           <motion.a
@@ -146,9 +154,6 @@ const Navbar = () => {
           >
             <NotionIcon className="dark:fill-light" />
           </motion.a>
-
-
-
           <button
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
             className={`mx-3 flex items-center justify-center rounded-full p-1
@@ -160,17 +165,12 @@ const Navbar = () => {
               <MoonIcon className="fill-light" />
             )}
           </button>
-
-          <button
-            onClick={() => setLanguage('us')}
-            >
-          <Image src={UsaFlag} alt='nextjs' className={`w-6 mx-3 ${lang === 'vn'? 'blur-[1.5px]': 'animate-spin-slow'}`}/>
-          </button>
-          <button
-            onClick={() => setLanguage('vn')}
-            >
-          <Image src={VietFlag} alt='nextjs'className={`w-6 mx-3 ${lang === 'en'? 'blur-[1.5px]': 'animate-spin-slow'}`}/>
-          </button>
+            <Image src={UsaFlag} alt='nextjs' className={`w-6 mx-3 ${currentLanguage.key === 'vi'? 'hidden': 'animate-spin-slow'}`}/>
+            <Image src={VietFlag} alt='nextjs'className={`w-6 mx-3 ${currentLanguage.key === 'en'? 'hidden': 'animate-spin-slow'}`}/>
+          <select defaultValue={changeLanguage} onChange={(e) => {changeLanguage(e.target.value)}} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option value="en">English</option>
+            <option value="vi">Tiếng Việt</option>
+          </select>
         </nav>
       </div>
 
@@ -184,25 +184,25 @@ const Navbar = () => {
           <nav className="flex flex-col items-center justify-center">
             <CustomMobileLink
               href="/"
-              title={NAVBAR.home}
+              title={t('home')}
               className=""
               toggle={handleClick}
             />
             <CustomMobileLink
               href="/about"
-              title={NAVBAR.about}
+              title={t('about')}
               className=""
               toggle={handleClick}
             />
             <CustomMobileLink
               href="/projects"
-              title={NAVBAR.projects}
+              title={t('projects')}
               className=""
               toggle={handleClick}
             />
             <CustomMobileLink
               href="/articles"
-              title={NAVBAR.articles}
+              title={t('articles')}
               className=""
               toggle={handleClick}
             />
@@ -256,14 +256,14 @@ const Navbar = () => {
             </button>
 
             <button
-            onClick={() => setLanguage('us')}
+            onClick={() => changeLanguage('en')}
             >
-          <Image src={UsaFlag} alt='nextjs' className={`w-6 mx-3 ${lang === 'vn'? 'blur-[1px]': 'animate-spin-slow'}`}/>
+          <Image src={UsaFlag} alt='nextjs' className={`w-6 mx-3 ${currentLanguage.key === 'vi'? 'blur-[1px]': 'animate-spin-slow'}`}/>
           </button>
           <button
-            onClick={() => setLanguage('vn')}
+            onClick={() => changeLanguage('vi')}
             >
-          <Image src={VietFlag} alt='nextjs'className={`w-6 mx-3 ${lang === 'en'? 'blur-[1px]': 'animate-spin-slow'}`}/>
+          <Image src={VietFlag} alt='nextjs'className={`w-6 mx-3 ${currentLanguage.key === 'en'? 'blur-[1px]': 'animate-spin-slow'}`}/>
           </button>
 
           </nav>

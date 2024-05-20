@@ -1,0 +1,57 @@
+{
+  "quote": "Đam mê sẽ đưa bạn đến đích!",
+  "title": "Thông tin",
+  "headTitle": "Thông tin | ZN",
+  "info": "Hi, I'm Zero, a web developer with a passion for creating beautiful, functional, and user-centered digital experiences. With 4 years of experience in the field. I am always looking for new and innovative ways to bring my clients' visions to life.",
+  "info1": "I believe that design is about more than just making things look pretty – it's about solving problems and creating intuitive, enjoyable experiences for users.",
+  "info2": "Whether I'm working on a website, mobile app, or other digital product, I bring my commitment to design excellence and user-centered thinking to every project I work on. I look forward to the opportunity to bring my skills and passion to your next project.",
+  "biography": "Tiểu sử",
+  "satisfiedClients": " Khách hàng",
+  "projectsCompleted": "Dự án",
+  "yearsOfExperience": "Năm kinh nghiệm",
+  "skills": "Kỹ năng",
+  "experience": {
+    "title": "Kinh nghiệm",
+    "experiences": [
+      {
+        "position": "Web Developer",
+        "company": "FPT Information System",
+        "time": "2020-Present",
+        "address": "District 7, HCM",
+        "work": "Worked on a team responsible for developing new features for Fis's search engine, including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization"
+      },
+      {
+        "position": "Frontend Developer",
+        "company": "TMA Solutions",
+        "time": "2019-2020",
+        "address": "District 12, HCM",
+        "work": "Worked on a team responsible for developing new features for TMA's search engine, including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization"
+      },
+      {
+        "position": "Frontend Developer",
+        "company": "Hahalolo company",
+        "time": "2019-2020",
+        "address": "District 12, HCM",
+        "work": "Worked on a team responsible for developing new features for TMA's search engine, including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization"
+      },
+      {
+        "position": "Frontend Developer",
+        "company": "FPT software",
+        "time": "2017-2018",
+        "address": "District 9, HCM",
+        "work": "Worked on a team responsible for developing new features for TMA's search engine, including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization"
+      }
+    ]
+  },
+  "education": {
+    "title": "Học tập",
+    "educations": [
+      {
+        "type": "Cử nhân công nghệ thông tin",
+        "time": "2011-2017",
+        "place": "Đại học Khoa học Tự nhiên Hồ Chí Minh",
+        "info": ""
+      }
+    ]
+  }
+}

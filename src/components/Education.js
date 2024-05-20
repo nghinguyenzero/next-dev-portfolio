@@ -1,8 +1,8 @@
-import React, { useContext, useRef } from "react";
+import React, {useRef } from "react";
 import { motion, useScroll } from "framer-motion";
+import { useTranslation } from "react-i18next";
+
 import LiIcon from "./LiIcon";
-import { CONTENT} from "@/constants";
-import { LangContext } from "@/context/LangContext";
 
 const Details = ({data}) => {
     const { type, time, place, info } = data
@@ -28,8 +28,15 @@ const Details = ({data}) => {
 };
 
 const Education = () => {
-  const {lang} = useContext(LangContext)
-  const EDUCATION = CONTENT[`${lang}`].about.education
+  const {t} = useTranslation(['about'])
+  const  educations = [
+              {
+                type: "Cử nhân công nghệ thông tin",
+                time: "2011-2017",
+                place: "Đại học Khoa học Tự nhiên Hồ Chí Minh",
+                info: "",
+              },
+            ]
 
   const ref = useRef(null);
   const {scrollYProgress} = useScroll({
@@ -39,7 +46,7 @@ const Education = () => {
   return (
     <div className="my-64">
       <h2 className="font-bold text-8xl mb-32 w-full text-center md:text-6xl xs:text-4xl md:mb-16">
-        {EDUCATION.title}
+        {t("education.title")}
       </h2>
       <div ref={ref} className="w-[75%] mx-auto relative lg:w-[90%] md:w-full">
         <motion.div 
@@ -50,7 +57,7 @@ const Education = () => {
         </motion.div>
         <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           {
-            EDUCATION.educations.map((data, i) => <Details key={i} data={data}/>)
+            educations.map((data, i) => <Details key={i} data={data}/>)
           }
         </ul>
       </div>
