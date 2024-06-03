@@ -156,7 +156,7 @@ const Navbar = () => {
           </motion.a>
           <button
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
-            className={`mx-3 flex items-center justify-center rounded-full p-1
+            className={`mx-3 flex items-center justify-center rounded-full p-1 mr-6
             ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}`}
           >
             {mode === "dark" ? (
@@ -165,12 +165,12 @@ const Navbar = () => {
               <MoonIcon className="fill-light" />
             )}
           </button>
+          <select defaultValue={changeLanguage} onChange={(e) => {changeLanguage(e.target.value)}} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option value="en">{t("english")}</option>
+            <option value="vi">{t("vietnamese")}</option>
+          </select>
             <Image src={UsaFlag} alt='nextjs' className={`w-6 mx-3 ${currentLanguage.key === 'vi'? 'hidden': 'animate-spin-slow'}`}/>
             <Image src={VietFlag} alt='nextjs'className={`w-6 mx-3 ${currentLanguage.key === 'en'? 'hidden': 'animate-spin-slow'}`}/>
-          <select defaultValue={changeLanguage} onChange={(e) => {changeLanguage(e.target.value)}} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option value="en">English</option>
-            <option value="vi">Tiếng Việt</option>
-          </select>
         </nav>
       </div>
 
